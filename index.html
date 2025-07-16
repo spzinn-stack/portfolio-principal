@@ -1,131 +1,117 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaue Becker - Portfólio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
-    }
+import React from "react";
 
-    header {
-      text-align: center;
-      padding: 50px 20px 20px;
-    }
+const projetosPessoais = [
+  {
+    titulo: "Projeto ToDo List",
+    descricao:
+      "Uma aplicação simples para organizar tarefas, feita com React e localStorage.",
+    link: "https://github.com/seuusuario/todo-list",
+  },
+  {
+    titulo: "Site Portfólio",
+    descricao:
+      "Meu site portfólio pessoal para mostrar meus projetos e habilidades.",
+    link: "https://portfolio-principal-7cja.vercel.app/",
+  },
+];
 
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      color: #111;
-    }
+const habilidades = [
+  "React",
+  "JavaScript (ES6+)",
+  "HTML5 e CSS3",
+  "Git e GitHub",
+  "Noções de UX/UI",
+];
 
-    header p {
-      font-size: 1.2em;
-      color: #555;
-    }
+export default function PortfolioIniciante() {
+  return (
+    <div
+      style={{
+        fontFamily: "Arial, sans-serif",
+        maxWidth: 800,
+        margin: "auto",
+        padding: 20,
+        color: "#222",
+      }}
+    >
+      <header style={{ textAlign: "center", marginBottom: 40 }}>
+        <h1 style={{ fontSize: 36, marginBottom: 5 }}>Kaue Becker</h1>
+        <p style={{ fontSize: 18, color: "#555" }}>
+          Desenvolvedor Front-end Iniciante | Apaixonado por aprender e criar
+        </p>
+      </header>
 
-    nav {
-      text-align: center;
-      margin: 20px 0;
-    }
+      <section style={{ marginBottom: 40 }}>
+        <h2>Sobre mim</h2>
+        <p style={{ fontSize: 16, lineHeight: 1.5, color: "#333" }}>
+          Sou um desenvolvedor front-end em início de carreira, dedicado a
+          aprender novas tecnologias e construir projetos que ajudem pessoas e
+          empresas. Estou aberto a oportunidades para crescer, colaborar e
+          desenvolver minhas habilidades na prática.
+        </p>
+      </section>
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #444;
-      font-weight: bold;
-    }
+      <section style={{ marginBottom: 40 }}>
+        <h2>Projetos Pessoais</h2>
+        <ul style={{ paddingLeft: 20 }}>
+          {projetosPessoais.map((proj) => (
+            <li key={proj.titulo} style={{ marginBottom: 15 }}>
+              <strong>{proj.titulo}</strong>: {proj.descricao}{" "}
+              <a
+                href={proj.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#0070f3", textDecoration: "none" }}
+              >
+                Veja no GitHub
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-    nav a:hover {
-      color: #0077cc;
-    }
+      <section style={{ marginBottom: 40 }}>
+        <h2>Habilidades</h2>
+        <ul style={{ paddingLeft: 20 }}>
+          {habilidades.map((skill) => (
+            <li key={skill} style={{ marginBottom: 8 }}>
+              {skill}
+            </li>
+          ))}
+        </ul>
+      </section>
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+      <section style={{ marginBottom: 40 }}>
+        <h2>Contato</h2>
+        <p>
+          Se você quiser conversar sobre projetos ou oportunidades, pode me
+          chamar por email;
+        </p>
+        <p>
+          <a
+            href="mailto:kaue@example.com"
+            style={{ color: "#0070f3", textDecoration: "none" }}
+          >
+            kauebecker@gmail.com
+          </a>{" "}
+          |{" "}
+          >
+          
+          </a>
+        </p>
+      </section>
 
-    .projetos a {
-      display: block;
-      margin-bottom: 20px;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      text-decoration: none;
-      background-color: #fff;
-      color: #000;
-      transition: box-shadow 0.3s;
-    }
-
-    .projetos a:hover {
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-whatsapp {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: #25d366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Kaue Becker</h1>
-    <p>Desenvolvedor Front-End | Criação de Sites Profissionais</p>
-  </header>
-
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-  </nav>
-
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Sou desenvolvedor web apaixonado por criar sites modernos, rápidos e funcionais. Atendo pequenos negócios, profissionais autônomos e quem deseja presença online com estilo e eficiência.</p>
-  </section>
-
-  <section id="projetos">
-    <h2>Projetos</h2>
-    <div class="projetos">
-      <a href="https://portfolio-kaue-two.vercel.app/" target="_blank">
-        🔹 Portfólio Pessoal
-      </a>
-      <a href="https://portfolio-kaue-two-zeta.vercel.app/" target="_blank">
-        💈 Barbearia Estilo Fino
-      </a>
+      <footer
+        style={{
+          textAlign: "center",
+          color: "#888",
+          fontSize: 14,
+          paddingTop: 20,
+          borderTop: "1px solid #ddd",
+        }}
+      >
+        © 2025 Kaue Becker
+      </footer>
     </div>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Quer um site como esses? Fale comigo direto no WhatsApp:</p>
-    <a class="btn-whatsapp" href="https://wa.me/55991971257" target="_blank">
-      Falar no WhatsApp
-    </a>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Kaue Becker. Todos os direitos reservados.</p>
-  </footer>
-
-</body>
-</html>
+  );
+}
